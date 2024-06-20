@@ -18,7 +18,7 @@ function ReservationReminder() {
       </p>
       <button
         onClick={resetRange}
-        className="pt-12 rounded-full p-1 hover:bg-accent-600 transition-all"
+        className="rounded-full p-1 hover:bg-accent-600 transition-all"
       >
         <XMarkIcon className="h-5 w-5" />
       </button>
