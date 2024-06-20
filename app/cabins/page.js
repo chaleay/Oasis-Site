@@ -1,12 +1,19 @@
 import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
+import Filter from "../_components/Filter";
+
+// incremental static regen in seconds
+// usually one hour is good
+export const revalidate = 500;
 
 export const metadata = {
   title: "Cabins",
 };
 
-export default async function Page() {
+export default async function Page({ searchParams }) {
+  const filter = searchParams?.capacity ?? "all";
+
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -21,9 +28,11 @@ export default async function Page() {
         Welcome to paradise.
       </p>
 
+      <Filter />
       {/* overrides our default loader */}
-      <Suspense fallback={<Spinner />}>
-        <CabinList />
+      {/* Key indicates which value to launch spinner */}
+      <Suspense fallback={<Spinner />} key={filter}>
+        <CabinList filter={filter} />
       </Suspense>
     </div>
   );
