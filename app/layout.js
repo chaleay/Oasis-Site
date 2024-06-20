@@ -12,7 +12,7 @@ const josefin = Josefin_Sans({
 });
 
 export const metadata = {
-  title: { template: "%s - Oasis", default: "Welcome - Oasis" },
+  title: { template: "%s - Solace", default: "Welcome - Solace" },
   description:
     "Luxurious cabin hotel booking service. Find you dream hotel, and your ideal solitutde",
 };
