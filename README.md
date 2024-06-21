@@ -15,7 +15,8 @@ This is a full-stack application that leverages Next.js's full-stack capabilites
 ### Installation instructions
 
 ```
-https://github.com/chaleay/Oasis-Site.git
+git clone https://github.com/chaleay/solace-site.git
+cd solace-site/
 npm i
 npm run dev
 ```
