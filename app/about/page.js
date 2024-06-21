@@ -54,7 +54,7 @@ export default async function Page() {
           className="object-cover"
           fill
           src="/about-2.jpg"
-          alt="Family that manages The Wild Oasis"
+          alt="Family that manages Solace"
         />
       </div>
 
@@ -71,7 +71,7 @@ export default async function Page() {
             dedication to creating a warm, welcoming environment.
           </p>
           <p>
-            Over the years, we&apos;ve maintained the essence of The Wild Oasis,
+            Over the years, we&apos;ve maintained the essence of Solace,
             blending the timeless beauty of the mountains with the personal
             touch only a family business can offer. Here, you&apos;re not just a
             guest; you&apos;re part of our extended family. So join us at The
