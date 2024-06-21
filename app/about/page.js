@@ -65,9 +65,9 @@ export default async function Page() {
 
         <div className="space-y-8">
           <p>
-            Since 1962, The Wild Oasis has been a cherished family-run retreat.
-            Started by our grandparents, this haven has been nurtured with love
-            and care, passing down through our family as a testament to our
+            Since 1962, Solace has been a cherished family-run retreat. Started
+            by our grandparents, this haven has been nurtured with love and
+            care, passing down through our family as a testament to our
             dedication to creating a warm, welcoming environment.
           </p>
           <p>
