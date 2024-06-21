@@ -32,6 +32,43 @@ export async function updateProfile(formData) {
   revalidatePath("/account/profile");
 }
 
+export async function createReservation(bookingData, formData) {
+  // auth
+  const session = await auth();
+  if (!session) {
+    throw new Error("You must be logged in");
+  }
+
+  const newBooking = {
+    ...bookingData,
+    numGuests: Number(formData.get("numGuests")),
+    observations: formData.get("observations").slice(0, 1000),
+    guestId: session.user.guestId,
+    totalPrice: bookingData.cabinPrice,
+    extrasPrice: 0,
+    isPaid: false,
+    hasBreakfast: false,
+    status: "unconfirmed",
+  };
+
+  // TODO: VALIDATE dates are available on backend as well...
+
+  const { data, error } = await supabase
+    .from("bookings")
+    .insert([newBooking])
+    // So that the newly created object gets returned!
+    .select()
+    .single();
+
+  if (error) {
+    console.error(error);
+    throw new Error("Booking could not be created");
+  }
+
+  revalidatePath(`/cabins/${bookingData.cabinId}`);
+  redirect("/cabins/thankyou");
+}
+
 export async function deleteReservation(bookingId) {
   const session = await auth();
   if (!session) {
@@ -55,7 +92,8 @@ export async function deleteReservation(bookingId) {
     throw new Error("Booking could not be deleted");
   }
 
-  revalidatePath("/account/reservations");
+  revalidatePath("/");
+  redirect("/account/reservations");
 }
 
 export async function updateReservation(formData) {
